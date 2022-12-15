@@ -8,8 +8,13 @@ public class For_Equals_And_HashCode_Vo {
     private final String str2 = "abc";
     private final String str3 = "abc";
 
-    public String getStr1(){return str1;}
-    public String getStr2(){return str2;}
+    public String getStr1() {
+        return str1;
+    }
+
+    public String getStr2() {
+        return str2;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -24,8 +29,12 @@ public class For_Equals_And_HashCode_Vo {
         return Objects.hash(str1, str2, str3);
     }
 
-    public void cl(){
-        System.out.println("cl => "+getClass());
+    public boolean hashCode(Object o1){
+        return false;
     }
+    public void cl() {
+        System.out.println("cl => " + getClass());
+    }
+
 
 }
