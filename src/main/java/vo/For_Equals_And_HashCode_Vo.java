@@ -14,6 +14,7 @@ public class For_Equals_And_HashCode_Vo {
 
     public String getStr2() {
         return str2;
+        //str1.equals()
     }
 
     @Override
@@ -35,6 +36,4 @@ public class For_Equals_And_HashCode_Vo {
     public void cl() {
         System.out.println("cl => " + getClass());
     }
-
-
 }
