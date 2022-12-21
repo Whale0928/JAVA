@@ -2,9 +2,15 @@
 
 ### 변수의 4종류
 - 인스턴스 변수 instance variable
+  - 클래스 내에서 선언된 변수
 - 클래스  변수 class variable
+  - 인스턴스 변수에 static 키워드가 붙어 선언된 변수
 - 매개 변수 parameter
+  - 메서드의 값으로 전달되는 변수
 - 지역 변수 local variable
+  - 메서드 내부에서 선언된 변수
+
+
 
 
 네가지 종류 변수는 어떻게 구분할 수 있나요?
