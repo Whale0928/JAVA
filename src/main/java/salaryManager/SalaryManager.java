@@ -7,11 +7,12 @@ public class SalaryManager {
 
     final static SalaryManager sm = new SalaryManager();
     static final double work = 0.125; //근로소득세
-    static final double nation = 8.1; //national pension 국민연금
-    static final double health = 12.5; //건강보험료
+    static final double nation = 0.081; //national pension 국민연금
+    static final double health = 0.135; //건강보험료
 
     public static void main(String[] args) {
-        sm.getMonthlySalary(100_000_000);
+        double salary = sm.getMonthlySalary(20_000_000);
+        System.out.printf("\n 공제 후 월급 : %.2f\n",salary);
     }
 
     /**연봉을 제공받아 월급을 반환한다.
@@ -24,10 +25,12 @@ public class SalaryManager {
         double salary = yearlySalary / 12.0;
         System.out.printf("월급 : %.2f\n",salary);
 
-        calculateTax(salary);
-        calculateNationalPerson(salary);
+        double tax = calculateTax(salary);
+        double nation = calculateNationalPerson(salary);
+        double health = calculateHealthnsurance(salary);
 
-        return 0;
+        salary -= (tax + nation + health);
+        return salary;
     }
 
     /**
@@ -36,9 +39,11 @@ public class SalaryManager {
      *
      * @param salary the salary
      */
-    public void calculateTax(double salary){
-        salary *= work;
-        System.out.printf("공제후 월급 : %.2f\n",salary);
+    public double calculateTax(double salary){
+        double tax = salary * work;
+        System.out.printf("\n공제금액 : %.2f\n",tax);
+        System.out.printf("공제후 월급 : %.2f\n",salary-tax);
+        return tax;
     }
 
     /**
@@ -46,9 +51,17 @@ public class SalaryManager {
      * Calculate national persion double.
      * @param salary the salary
      */
-    public void calculateNationalPerson(double salary){
-        salary *= nation;
-        System.out.printf("연금공제후 : %.2f\n",salary);
+    public double calculateNationalPerson(double salary){
+        double tax = salary * nation;
+        System.out.printf("\n연금공제후 : %.2f\n",tax);
+        System.out.printf("연금공제후 : %.2f\n",salary-tax);
+        return tax;
+    }
+    public double calculateHealthnsurance(double salary){
+        double tax = salary * health;
+        System.out.printf("\n건강보험료 : %.2f\n",tax);
+        System.out.printf("건강보험 공제후 : %.2f\n",salary-tax);
+        return tax;
     }
 
 }
