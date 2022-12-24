@@ -98,10 +98,10 @@ hash는 hash_function을 통해 만들어진 임의의 정수를 hash값이라�
   다음 노드인 2-2번 인덱스에 저장하게 한다.
 - 이때 키가 값으면 덮어씌우게 된다.
 
-| 1 |  |  |  |
-| --- | --- | --- | --- |
-| 2 | 010-1234-1234 , 홍길동 | 010-4421-1421 , 김개똥 | 010-3211-1234 , 홍길동 |
-| 3 |  |  |  |
+| 1   |                     |                     |                     |
+|-----|---------------------|---------------------|---------------------|
+| 2   | 010-1234-1234 , 홍길동 | 010-4421-1421 , 김개똥 | 010-3211-1234 , 홍길동 |
+| 3   |                     |                     |                     |
 
 - key을 통해 찾을때는 해당 Linked List을 전부 순차적으로 접근해 찾는다
     - 010-1234-1234 ⇒ 010-4421-1421 ⇒ 010-3211-1234
@@ -110,15 +110,15 @@ hash는 hash_function을 통해 만들어진 임의의 정수를 hash값이라�
 
 ---
 
-|  | C / Python 의 dictionary | Java HashMap |
-| --- | --- | --- |
-| 구현 | hash table을 사용한다 | 동일 |
-| 데이터 접근 시간 | 모든 데이터를 상수 시간에 접근 | 동일 |
-| 삽입 / 삭제 시간 | 모든 데이터를 상수 시간에 접근 | 동일 |
-| 해쉬 충돌 해결 방법 | https://www.notion.so/Open-addression-539c4cdf8d834efea3932d1b7a7a9e3a  | https://www.notion.so/separate-chaining-a439a7d599b04e618e60f9c408b5054e  |
-| default initial capa(최초 맵 사이즈) | 8 | 16 |
-| resize 타이밍 | capa가 3/2이상 데이터 존재 시  | capa의 4/3 이상의 데이터 존재시 |
-| resize 규모 | 4x or 2x | 2x |
-| shrink 타이밍(capa를 다시 줄여줄때) | dummy 데이터 > 유효 데이터 일떄에 | LinkedList라 필요없다 |
-| hash table capa(항상 2승) | power of 2 | power of 2 |
+|                                | C / Python 의 dictionary                                                | Java HashMap                                                             |
+|--------------------------------|------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| 구현                             | hash table을 사용한다                                                       | 동일                                                                       |
+| 데이터 접근 시간                      | 모든 데이터를 상수 시간에 접근                                                      | 동일                                                                       |
+| 삽입 / 삭제 시간                     | 모든 데이터를 상수 시간에 접근                                                      | 동일                                                                       |
+| 해쉬 충돌 해결 방법                    | https://www.notion.so/Open-addression-539c4cdf8d834efea3932d1b7a7a9e3a | https://www.notion.so/separate-chaining-a439a7d599b04e618e60f9c408b5054e |
+| default initial capa(최초 맵 사이즈) | 8                                                                      | 16                                                                       |
+| resize 타이밍                     | capa가 3/2이상 데이터 존재 시                                                   | capa의 4/3 이상의 데이터 존재시                                                    |
+| resize 규모                      | 4x or 2x                                                               | 2x                                                                       |
+| shrink 타이밍(capa를 다시 줄여줄때)      | dummy 데이터 > 유효 데이터 일떄에                                                 | LinkedList라 필요없다                                                         |
+| hash table capa(항상 2승)         | power of 2                                                             | power of 2                                                               |
 - 최악의 상황시 시간이 오래 걸림 ( 모든 방식에 Hash Collision 발생)
