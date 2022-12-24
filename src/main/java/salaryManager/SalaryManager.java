@@ -24,25 +24,31 @@ public class SalaryManager {
         double salary = yearlySalary / 12.0;
         System.out.printf("월급 : %.2f\n",salary);
 
-        double taxAfterSalary = calculateNationalPersion(salary);
+        calculateTax(salary);
+        calculateNationalPerson(salary);
 
-        System.out.printf("공제후 월급 : %.2f",taxAfterSalary);
         return 0;
     }
 
-    /**월급여를 받고 근로소득세를 공제하고 반환한다.
+    /**
+     * 월급여를 받고 근로소득세를 공제하고 반환한다.
      * Calculate tax double.
      *
-     * @param monthlySalary the monthly salary
-     * @return the double
+     * @param salary the salary
      */
-    public double calculateTax(double monthlySalary){
-        return monthlySalary * work;
+    public void calculateTax(double salary){
+        salary *= work;
+        System.out.printf("공제후 월급 : %.2f\n",salary);
     }
 
-    public double calculateNationalPersion(double salary){
-        double workTax = calculateTax(salary);
-        System.out.printf("근로소득세 : %.2f\n",workTax);
-        return salary-workTax;
+    /**
+     * 연금을 공제해주는 메서드
+     * Calculate national persion double.
+     * @param salary the salary
+     */
+    public void calculateNationalPerson(double salary){
+        salary *= nation;
+        System.out.printf("연금공제후 : %.2f\n",salary);
     }
+
 }
