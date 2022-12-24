@@ -9,9 +9,9 @@ public class InterestManager {
     final static InterestManager im = new InterestManager();
 
     public static void main(String[] args) {
-        for (int i = 1; i <= 365; i++) {
+        for (int i = 1; i <= 365; i+=25) {
             double value = im.calculateAmount(i, amount);
-            System.out.printf("%d일 이자금액 : %.2f\n", i, value);
+            System.out.printf("%d일 이자금액 : %.2f 원\n", i, value);
         }
     }
 
