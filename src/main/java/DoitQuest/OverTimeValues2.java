@@ -15,4 +15,5 @@ public enum OverTimeValues2 {
     public int getAmount() {
         return amount;
     }
+
 }
