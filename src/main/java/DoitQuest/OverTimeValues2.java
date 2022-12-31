@@ -16,4 +16,10 @@ public enum OverTimeValues2 {
         return amount;
     }
 
+    @Override
+    public String toString() {
+        return "OverTimeValues2{" +
+                "amount=" + amount +
+                '}';
+    }
 }
