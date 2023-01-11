@@ -13,9 +13,12 @@ public class WildcardSample {
         wildcardStringMethod(wildcard);
     }
 
-    public void wildcardStringMethod(WildcardGeneric<String> c){
-        String value = c.getWildcard();
-        System.out.println("value = " + value);
+    public void wildcardStringMethod(WildcardGeneric<?> c){
+
+        Object value = c.getWildcard();
+        if(value instanceof String){
+            System.out.println("value = " + value);
+        }
 
     }
 }
