@@ -8,6 +8,7 @@ public class CarWildcardSample {
 
     private void callBoundedWildcardMethod() {
         WildcardGeneric<Car> wildcard = new WildcardGeneric<>();
+        wildcard.setWildcard(new Car("Poll_Star"));
         wildcard.setWildcard(new Bus("3154번 버스"));
         boundedWildcardMethod(wildcard);
     }
